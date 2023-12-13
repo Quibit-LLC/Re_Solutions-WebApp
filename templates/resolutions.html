@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <!-- ======= Resolution Section ======= -->
+  <section id="resolutions" class="resolutions">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Resolutions</h2>
+      </div>
+      {%if resolutions%}
+      <div class="row">
+        {% for resolution in resolutions %}
+        <div class="col-lg-4"> <!-- Adjust the column size as needed -->
+            <div class="card" style="margin-left: 30px;">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="bi bi-card-checklist"></i> {{ resolution.title }}</h5>
+                    <p class="card-text"><i class="bi bi-file-text"></i> {{ resolution.description }}</p>
+                    <p class="card-text"><i class="bi bi-file-text"></i> {{ resolution.notes }}</p>
+                    <p class="card-text"><i class="bi bi-person"></i> Due date: {{ resolution.due_date }}</p>
+                    <p class="card-text"><i class="bi bi-person"></i> Category: {{ resolution.categories }}</p>
+                    <p class="card-text"><i class="bi bi-person"></i> Priority Level: {{ resolution.priority }}</p>
+                    <p class="card-text"><i class="bi bi-person"></i> Status: {{ resolution.status }}</p>
+                    <p class="card-text"><i class="bi bi-person"></i> Updated at: {{ resolution.updated_at }}</p>
+                    <!-- Edit and Delete Buttons -->
+                    <div class="d-flex justify-content-between mt-5">
+                        <a href="{% url 'edit_resolution' resolution.id %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'delete_resolution' resolution.id %}" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+      </div>
+      {%else%}
+      <p><h3 style="text-align: center;">Oops! No resolutions found. Add your resolutions to see in list.</h3></p>
+      {%endif%}
+    </div>
+  </section><!-- End Resolution Section -->
+{% endblock %}

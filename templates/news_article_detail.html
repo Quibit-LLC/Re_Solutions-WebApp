@@ -1,0 +1,34 @@
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <!-- ======= News Article Section ======= -->
+  <section id="news-articles" class="news-articles">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Events Detail</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card mb-4">
+            <img src="{{ news_article.image.url }}" class="card-img-top" alt="{{ news_article.title }}" style="object-fit: cover; height: min-content;">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-newspaper"></i> {{ news_article.title }}</h5>
+              <p class="card-text"><i class="bi bi-calendar-event"></i> {{ news_article.url_link }}</p>
+              <p class="card-text"><i class="bi bi-calendar-event"></i> Content: {{ news_article.content }}</p>
+              <p class="card-text"><i class="bi bi-calendar-event"></i> Category: {{ news_article.categories }}</p>
+              <p class="card-text"><i class="bi bi-calendar-event"></i> {{ news_article.tags }}</p>
+              <p class="card-text"><i class="bi bi-calendar-event"></i> Created at: {{ news_article.created_at }}</p>
+              <!-- View More Button -->
+              <a href="#" class="btn btn-primary">View More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End News Article Section -->
+{% endblock %}

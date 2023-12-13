@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+  <!-- ======= News Article Section ======= -->
+  <section id="news-articles" class="news-articles">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Events</h2>
+      </div>
+      {% if news_articles %}
+      <div class="row">
+        {% for news_article in news_articles %}
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <img src="{{ news_article.image.url }}" class="card-img-top" alt="{{ news_article.title }}">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-newspaper"></i> {{ news_article.title }}</h5>
+              <p class="card-text"><i class="bi bi-calendar-event"></i> Created at: {{ news_article.created_at }}</p>
+              <!-- View More Button -->
+              <a href="{% url 'news_article_detail' news_article.id %}" class="btn btn-primary" style="width: 100%;text-align: center;">View More</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p><h3 style="text-align: center;">Oops! No new Events found. Coming Soon.</h3></p>
+      {% endif %}
+    </div>
+  </section><!-- End News Article Section -->
+{% endblock %}

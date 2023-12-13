@@ -1,0 +1,23 @@
+
+{% extends "base.html" %}
+{%block title%}Add Resolutions{%endblock%}
+{% block content %}
+<style>
+    .btn-block {
+  width: 100%;
+}
+
+.btn-primary {
+  text-align: center;
+}
+</style>
+
+  <div class="form-container" style="align-items: center;padding-left: 150px;padding-right: 150px; padding-top: 80px;">
+    <h1 style="text-align: center;">Add Resolutions</h1>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="btn btn-primary mt-3" value="Add Resolution" style="width: 100%; margin-bottom: 70px;">
+  </form>
+</div>
+{% endblock %}
