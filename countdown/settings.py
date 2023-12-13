@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-3l=h$lt1z928t6y%l%@2x%hcfjk+t0o+-&*656spojj+d$zxbl
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["re-solutions-web-app.vercel.app"]
 
 #Solving the error: The current path, accounts/profile/, didn’t match any of these realized from the login form
 LOGIN_URL='/login/'
