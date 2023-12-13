@@ -1,0 +1,22 @@
+
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "countdown/wsgi.py",  
+        "use": "@vercel/python",
+        "config":{"maxLambdaSize":"15mb","runtime":"python3.11.2"}
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "countdown/wsgi.py",
+        "continue": true
+      }
+    ],
+    "env": {
+      "DJANGO_SETTINGS_MODULE": "countdown.settings" 
+    }
+  }
+  
